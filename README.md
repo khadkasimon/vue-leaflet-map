@@ -18,4 +18,4 @@ npm run dev
 npm run build
 ```
 ## Project Output
-![Project Output](assets/architecture.png)
+![Project Output](src/assets/architecture.png)
