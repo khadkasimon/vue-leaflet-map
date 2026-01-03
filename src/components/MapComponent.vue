@@ -93,12 +93,22 @@ export default {
 
       if (!mapContainer.value) return;
 
-      // Create map
-      map = L.map(mapContainer.value).setView(props.center, props.zoom);
+      // Create map with attribution control disabled
+      map = L.map(mapContainer.value, { attributionControl: false }).setView(
+        props.center,
+        props.zoom
+      );
 
-      // Add OpenStreetMap tile layer
+      // Add NEB MAP attribution only
+      L.control
+        .attribution({
+          prefix: '<span class="AttributionClass">SURESH MAP</span>',
+        })
+        .addTo(map);
+
+      // Add OpenStreetMap tile layer WITHOUT attribution
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution: "&copy; OpenStreetMap contributors",
+        attribution: "", // Empty attribution
       }).addTo(map);
 
       // Initialize marker
@@ -122,7 +132,7 @@ export default {
       const osm = L.tileLayer(
         "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
         {
-          attribution: "© OpenStreetMap",
+          attribution: "", // Empty attribution
         }
       );
 
@@ -131,6 +141,7 @@ export default {
         {
           maxZoom: 20,
           subdomains: ["mt0", "mt1", "mt2", "mt3"],
+          attribution: "", // Empty attribution
         }
       );
 
@@ -139,15 +150,16 @@ export default {
         {
           maxZoom: 20,
           subdomains: ["mt0", "mt1", "mt2", "mt3"],
+          attribution: "", // Empty attribution
         }
       );
 
       const dark = L.tileLayer(
         "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
         {
-          attribution: "© OpenStreetMap, © CartoDB",
           subdomains: "abcd",
           maxZoom: 19,
+          attribution: "", // Empty attribution
         }
       );
 

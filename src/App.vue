@@ -57,18 +57,18 @@ export default {
     MapComponent,
   },
   setup() {
-    const tenantName = ref("राष्ट्रिय परिक्षा बोर्ड");
+    const tenantName = ref("कार्यालयको नाम");
     const officeMap = ref("");
 
     // Example initial data (optional)
-    // officeMap.value = JSON.stringify({
-    //   type: "Feature",
-    //   geometry: {
-    //     type: "Point",
-    //     coordinates: [85.373568, 27.687178]
-    //   },
-    //   properties: {}
-    // })
+    officeMap.value = JSON.stringify({
+      type: "Feature",
+      geometry: {
+        type: "Point",
+        coordinates: [85.373568, 27.687178],
+      },
+      properties: {},
+    });
 
     const handleCoordinatesChanged = (coordinates) => {
       console.log("नयाँ GPS निर्देशांक:", coordinates);
