@@ -17,3 +17,5 @@ npm run dev
 ```sh
 npm run build
 ```
+## Project Output
+![Project Output](assets/architecture.png)
